@@ -1,11 +1,11 @@
 [tool.poetry]
-name = "eq-monitor"
+name = "eq_microservice"
 version = "0.1.0"
-description = "Data products to study earthquake effects"
-authors = ["Artem Vesnin <artemvesnin@gmail.com>"]
+description = ""
+authors = ["piccolo-gatto", "ToshaTosha", "dzhoshua"]
 license = "MIT"
 readme = "README.md"
-packages = [{include = "eq_monitor"}]
+packages = [{include = "eq_microservice"}]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<=3.11"
