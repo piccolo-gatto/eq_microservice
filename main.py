@@ -9,7 +9,7 @@ api = FastAPI()
 
 @api.post("/register")
 async def register(user_name: str, user_mail: EmailStr, password:str):
-    token =rand_token = uuid4()
+    token = uuid4()
     #проверка существования в бд
     if user_exists(user_name, user_mail):
         return {"status": "failed", "message":"The user already exists"}
