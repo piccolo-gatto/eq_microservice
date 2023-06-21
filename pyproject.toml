@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "eq-monitor"
+version = "0.1.0"
+description = "Data products to study earthquake effects"
+authors = ["Artem Vesnin <artemvesnin@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "eq_monitor"}]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<=3.11"
+uvicorn = {extras = ["standart"], version = "^0.22.0"}
+pydantic = {extras = ["email"], version = "^1.10.9"}
+sqlalchemy = "^2.0.16"
+
+[tool.poetry.group.dev.dependencies]
+fastapi = "^0.97.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
