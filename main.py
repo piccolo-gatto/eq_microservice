@@ -22,6 +22,6 @@ async def register(user_name: str, user_mail: EmailStr, password:str):
 async def log_in(user_mail: EmailStr, password:str):
     #проверка существования
     #
-    if !authorisation(user_mail,password):
+    if not authorisation(user_mail,password):
         return {"status": "failed", "message":"You are not registered"}
     return {"status":"ok", "token":token}
