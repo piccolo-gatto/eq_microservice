@@ -49,7 +49,7 @@ class FileStorage():
             if not pth.is_dir():
                 raise StorageRootContainsFiles
             else:
-                if len(fname) ==self. TOKEN_LENGTH:
+                if len(fname) == self.TOKEN_LENGTH:
                     pass
                 else:
                     raise ProcessingDirLengthIncorrect
