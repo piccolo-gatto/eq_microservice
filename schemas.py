@@ -2,16 +2,11 @@ from pydantic import BaseModel,EmailStr
 from datetime import datetime
 import secrets
 
-class FileBase(BaseModel):
-    pass
-
-class FileCreate(FileBase):
-    pass
-
-
-class File(FileBase):
+class File(BaseModel):
     id: int
     user_id: int
+    ivent_id: int
+    type: str
     path: str
 
     class Config:
@@ -28,22 +23,16 @@ class UserCreate(UserBase):
 
 class User(UserBase):
     id: int
-    files: list[File] = []
+    #files: list[File] = []
 
     class Config:
         orm_mode = True
 
 
-class IventBase(BaseModel):
-    start_datetime: datetime
-    end_datetime: datetime
+#class Ivent(BaseModel):
+#    token: str
+#    datetime_start: datetime
+#    datetime_end: datetime
 
-class IventCreate(IventBase):
-    pass
-
-
-class Ivent(IventBase):
-    token: str
-
-    class Config:
-        orm_mode = True
+ #   class Config:
+#        orm_mode = True

@@ -18,14 +18,20 @@ class Uploaded_file(Base):
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     user_id = Column(Integer, ForeignKey("users.id"))
-    path = Column(Text)
+    ivent_id = Column(Integer, ForeignKey("ivents.id"))
+    type = Column(String)
+    path = Column(String)
+    datetime = Column((String))
 
     user = relationship("User", back_populates="files")
+    ivent = relationship("Ivent", back_populates="filess")
 
 class Ivent(Base):
-    __tablename__ = "ivent_files"
+    __tablename__ = "ivents"
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
-    start_datetime = Column(DateTime)
-    end_datetime = Column(DateTime)
-    token = Column(Text)
+    datetime_start = Column(String)
+    datetime_end = Column(String)
+    token = Column(String)
+
+    filess = relationship("Uploaded_file", back_populates="ivent")
