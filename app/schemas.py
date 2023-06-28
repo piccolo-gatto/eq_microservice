@@ -20,7 +20,7 @@ class File(FileBase):
         orm_mode = True
 
 
-class UserBase(BaseModel):
+class User(BaseModel):
     email: EmailStr
 
 
@@ -28,9 +28,5 @@ class UserCreate(UserBase):
     pass
 
 
-class User(UserBase):
-    id: int
-    files: list[File] = []
-
-    class Config:
-        orm_mode = True
+class UserToken(BaseModel):
+    token: str
