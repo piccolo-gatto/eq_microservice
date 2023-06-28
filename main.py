@@ -31,15 +31,16 @@ async def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
     #добавление
     return logic.create_user(db=db, user=user)
 
-user_id = 0
 
-@api.post(f"/{user_id}/upload_file")
+
+@api.post("/upload_file")
 def upload_file(file: UploadFile, datetime: schemas.IventCreate, db: Session = Depends(get_db)): 
+	user_id = 0
 	user_id = int(f"{user_id}")
 	storage = FileStorage()
 	token = secrets.token_hex(FileStorage.TOKEN_LENGTH)
 	logic.create_ivent(db=db, datetime=datetime, token=token)
 	path = str(storage.make_processing_dir(token) / file.filename)
 	with open(path, "w") as f:
-          	f.write('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+          	f.write(file.read())
 	return logic.upload_file(db=db, user_id=user_id, path=path)
