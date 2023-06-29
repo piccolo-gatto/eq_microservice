@@ -39,11 +39,9 @@ async def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
 
 @api.post("/upload_file")
 async def upload_file(email: EmailStr, file: UploadFile, type: str, datetime_start: datetime, datetime_end: datetime, db: Session = Depends(get_db)):
-    user_id = logic.get_user_by_email(db, email=str(email)) 
-    token = logic.get_ivent_by_datetime(db, datetime_start=datetime_start.strftime("%Y-%m-%d %H:%M:%S"), datetime_end=datetime_end.strftime("%Y-%m-%d %H:%M:%S"))
-    ivent_id = logic.get_ivent_by_token(db, token=token)
-    #user_id = 0 #затычка
-    #ivent_id = 0 #затычка
+    user_id = logic.get_user_by_email(db, email=str(email)).id
+    token = logic.get_ivent_token_by_datetime(db, datetime_start=datetime_start.strftime("%Y-%m-%d %H:%M:%S"), datetime_end=datetime_end.strftime("%Y-%m-%d %H:%M:%S"))
+    ivent_id = logic.get_ivent_by_token(db, token=token).id
     path = str(logic.make_processing_dir(token)) + '/' + file.filename
     with open(path, "wb") as f:
         f.write(await file.read())

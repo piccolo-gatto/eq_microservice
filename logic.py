@@ -16,27 +16,26 @@ TOKEN_LENGTH = 16
 
 def get_user_by_email(db: Session, email: str):
     try:
-        return db.query(models.User).filter(models.User.email == email).first().id
+        return db.query(models.User).filter(models.User.email == email).first() 
     except:
         return logger.error("Error get user data by email")
     
 
-def get_ivent_by_datetime(db: Session, datetime_start: datetime, datetime_end: datetime):
-    token = db.query(models.Ivent).filter(and_(models.Ivent.datetime_start == datetime_start, models.Ivent.datetime_end == datetime_end)).first()
-    logger.info(f"{token}")
-    if token == None:
+def get_ivent_token_by_datetime(db: Session, datetime_start: datetime, datetime_end: datetime):
+    ivent = db.query(models.Ivent).filter(and_(models.Ivent.datetime_start == datetime_start, models.Ivent.datetime_end == datetime_end)).first()
+    if ivent == None:
         token = generate_token()
         logger.info(f"{token} Create new ivent")
         create_ivent(db=db, datetime_start=datetime_start, datetime_end=datetime_end, token=token)
     else:
-        token = token.token
+        token = ivent.token
         logger.info(f"{token} Token for ivent is getting")
     return token
 
 
 def get_ivent_by_token(db: Session, token: str):
     try:
-        return db.query(models.Ivent).filter(models.Ivent.token == token).first().id
+        return db.query(models.Ivent).filter(models.Ivent.token == token).first()
     except:
         return logger.error("Error get ivent data by token")
 
