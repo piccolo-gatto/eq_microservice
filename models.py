@@ -21,7 +21,7 @@ class Uploaded_file(Base):
     ivent_id = Column(Integer, ForeignKey("ivents.id"))
     type = Column(String)
     path = Column(String)
-    datetime = Column((String))
+    datetime = Column(String)
 
     user = relationship("User", back_populates="files")
     ivent = relationship("Ivent", back_populates="filess")
