@@ -1,18 +1,25 @@
+import os
+import secrets
+
 from pydantic import EmailStr
-from fastapi import FastAPI, Depends, HTTPException
+from fastapi import FastAPI, UploadFile, Depends, HTTPException
+from datetime import datetime
 from sqlalchemy.orm import Session
 from loguru import logger
+import uvicorn
 
-from . import models, schemas, crud
+from app import models, schemas, crud
 from .database import SessionLocal, engine
+
 
 models.Base.metadata.create_all(bind=engine)
 
+
 api = FastAPI()
+
 
 logger.add("./logs/info.log", retention="1 week")
 
-# Dependency
 def get_db():
     db = SessionLocal()
     try:
@@ -20,7 +27,18 @@ def get_db():
     finally:
         db.close()
 
-#Endpoints
+
+@api.post("/upload_file", response_model=schemas.File)
+async def upload_file(email: EmailStr, file: UploadFile, type: str, datetime_start: datetime, datetime_end: datetime, db: Session = Depends(get_db)):
+    user_id = crud.get_user_by_email(db, email=str(email)).id
+    token = crud.get_ivent_token_by_datetime(db, datetime_start=datetime_start.strftime("%Y-%m-%d %H:%M:%S"), datetime_end=datetime_end.strftime("%Y-%m-%d %H:%M:%S"))
+    ivent_id = crud.get_ivent_by_token(db, token=token).id
+    path = str(crud.make_processing_dir(token)) + '/' + file.filename
+    with open(path, "wb") as f:
+        f.write(await file.read())
+    logger.info(f"{file.filename} File is writing")
+    return crud.upload_file(db=db, user_id=user_id, ivent_id=ivent_id, path=path, type=type, datetime=datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+    
 @api.post("/create_user", response_model=schemas.User)
 async def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
     logger.info("Received request to create a user")
