@@ -45,3 +45,156 @@
 2023-06-28 23:52:36.524 | INFO     | app.main:upload_file:53 - jpnb2.PNG File is writing
 2023-06-28 23:53:32.070 | INFO     | app.main:upload_file:48 - 152c6b9c6f9eb9a275284bc92c6da5f7 Create new ivent
 2023-06-28 23:53:33.208 | INFO     | app.main:upload_file:53 - jpnb2.PNG File is writing
+2023-06-29 13:51:36.740 | INFO     | app.main:upload_file:48 - ce6399e8bed179e83264cf71dc1b68e4 Create new ivent
+2023-06-29 13:51:39.313 | INFO     | app.main:upload_file:53 - jpnb2.PNG File is writing
+2023-06-29 13:57:05.276 | INFO     | app.main:upload_file:48 - 2a54fc34a4092b67871ec10a92a4e691 Create new ivent
+2023-06-29 13:57:05.551 | INFO     | app.main:upload_file:53 - jpnb2.PNG File is writing
+2023-06-29 14:05:29.520 | INFO     | app.main:upload_file:48 - da33fc834ebc85781262ea2a20c02080 Create new ivent
+2023-06-29 14:05:29.855 | INFO     | app.main:upload_file:53 - jpnb2.PNG File is writing
+2023-06-29 14:47:48.371 | ERROR    | app.logic:get_ivent_by_datetime:37 - Error receiving ivent data by datetime
+2023-06-29 14:47:48.446 | ERROR    | app.logic:get_ivent_by_token:44 - Error receiving ivent data by token
+2023-06-29 14:50:43.147 | ERROR    | app.logic:get_ivent_by_datetime:37 - Error receiving ivent data by datetime
+2023-06-29 14:50:43.152 | ERROR    | app.logic:get_ivent_by_token:44 - Error receiving ivent data by token
+2023-06-29 14:52:28.818 | ERROR    | app.logic:get_ivent_by_datetime:37 - Error receiving ivent data by datetime
+2023-06-29 14:52:28.824 | ERROR    | app.logic:get_ivent_by_token:44 - Error receiving ivent data by token
+2023-06-29 14:52:28.857 | INFO     | app.main:upload_file:50 - jpnb2.PNG File is writing
+2023-06-29 14:52:53.281 | ERROR    | app.logic:get_ivent_by_datetime:37 - Error receiving ivent data by datetime
+2023-06-29 14:52:53.286 | ERROR    | app.logic:get_ivent_by_token:44 - Error receiving ivent data by token
+2023-06-29 14:55:06.510 | ERROR    | app.logic:get_ivent_by_datetime:37 - Error receiving ivent data by datetime
+2023-06-29 14:55:06.514 | ERROR    | app.logic:get_ivent_by_token:44 - Error receiving ivent data by token
+2023-06-29 14:55:52.684 | ERROR    | app.logic:get_ivent_by_datetime:37 - Error receiving ivent data by datetime
+2023-06-29 14:55:52.688 | ERROR    | app.logic:get_ivent_by_token:44 - Error receiving ivent data by token
+2023-06-29 14:55:52.691 | ERROR    | app.logic:make_processing_dir:78 - It's directory is making
+2023-06-29 14:55:52.694 | INFO     | app.main:upload_file:50 - jpnb2.PNG File is writing
+2023-06-29 14:56:25.502 | ERROR    | app.logic:get_ivent_by_datetime:37 - Error receiving ivent data by datetime
+2023-06-29 14:56:25.507 | ERROR    | app.logic:get_ivent_by_token:44 - Error receiving ivent data by token
+2023-06-29 14:56:25.509 | ERROR    | app.logic:make_processing_dir:78 - It's directory is making
+2023-06-29 14:56:25.512 | INFO     | app.main:upload_file:50 - jpnb2.PNG File is writing
+2023-06-29 14:56:29.982 | ERROR    | app.logic:get_ivent_by_datetime:37 - Error receiving ivent data by datetime
+2023-06-29 14:56:29.988 | ERROR    | app.logic:get_ivent_by_token:44 - Error receiving ivent data by token
+2023-06-29 14:56:29.992 | ERROR    | app.logic:make_processing_dir:78 - It's directory is making
+2023-06-29 14:56:29.995 | INFO     | app.main:upload_file:50 - jpnb2.PNG File is writing
+2023-06-29 14:58:30.109 | ERROR    | app.logic:get_ivent_by_datetime:37 - Error receiving ivent data by datetime
+2023-06-29 14:58:30.116 | ERROR    | app.logic:get_ivent_by_token:44 - Error receiving ivent data by token
+2023-06-29 14:58:30.119 | ERROR    | app.logic:make_processing_dir:78 - It's directory is making
+2023-06-29 14:58:30.122 | INFO     | app.main:upload_file:50 - jpnb2.PNG File is writing
+2023-06-29 15:04:22.727 | ERROR    | app.logic:get_ivent_by_datetime:37 - Error receiving ivent data by datetime
+2023-06-29 15:04:22.733 | ERROR    | app.logic:get_ivent_by_token:44 - Error receiving ivent data by token
+2023-06-29 15:04:23.169 | INFO     | app.main:upload_file:50 - jpnb2.PNG File is writing
+2023-06-29 15:06:38.811 | ERROR    | app.logic:get_ivent_by_datetime:37 - Error receiving ivent data by datetime
+2023-06-29 15:06:38.816 | ERROR    | app.logic:get_ivent_by_token:44 - Error receiving ivent data by token
+2023-06-29 15:06:38.820 | ERROR    | app.logic:make_processing_dir:78 - It's directory is making
+2023-06-29 15:06:38.823 | INFO     | app.main:upload_file:50 - jpnb2.PNG File is writing
+2023-06-29 15:15:19.466 | ERROR    | app.logic:get_ivent_by_datetime:45 - Error receiving ivent data by datetime
+2023-06-29 15:15:19.472 | ERROR    | app.logic:get_ivent_by_token:52 - Error receiving ivent data by token
+2023-06-29 15:15:19.475 | ERROR    | app.logic:make_processing_dir:86 - It's directory is making
+2023-06-29 15:15:19.478 | INFO     | app.main:upload_file:50 - jpnb2.PNG File is writing
+2023-06-29 15:23:54.721 | ERROR    | app.logic:get_ivent_by_datetime:36 - Error receiving ivent data by datetime
+2023-06-29 15:23:54.753 | ERROR    | app.logic:get_ivent_by_token:43 - Error receiving ivent data by token
+2023-06-29 15:23:54.757 | ERROR    | app.logic:make_processing_dir:77 - It's directory is making
+2023-06-29 15:23:54.760 | INFO     | app.main:upload_file:50 - jpnb2.PNG File is writing
+2023-06-29 15:26:21.379 | ERROR    | app.logic:get_ivent_by_datetime:36 - Error receiving ivent data by datetime
+2023-06-29 15:26:21.385 | ERROR    | app.logic:get_ivent_by_token:43 - Error receiving ivent data by token
+2023-06-29 15:26:21.388 | ERROR    | app.logic:make_processing_dir:77 - It's directory is making
+2023-06-29 15:26:22.391 | INFO     | app.main:upload_file:50 - jpnb2.PNG File is writing
+2023-06-29 15:29:48.982 | INFO     | app.logic:get_ivent_by_datetime:26 - None
+2023-06-29 15:29:48.985 | INFO     | app.logic:generate_token:44 - Generating a token
+2023-06-29 15:29:48.988 | INFO     | app.logic:get_ivent_by_datetime:29 - 1d48c650428bd2cbad058f92787a8129 Create new ivent
+2023-06-29 15:30:13.343 | INFO     | app.main:upload_file:50 - jpnb2.PNG File is writing
+2023-06-29 15:30:22.899 | INFO     | app.logic:get_ivent_by_datetime:26 - None
+2023-06-29 15:30:22.901 | INFO     | app.logic:generate_token:44 - Generating a token
+2023-06-29 15:30:22.904 | INFO     | app.logic:get_ivent_by_datetime:29 - 941c65d284ad479f71a40254087f0620 Create new ivent
+2023-06-29 15:30:23.645 | INFO     | app.main:upload_file:50 - jpnb2.PNG File is writing
+2023-06-29 15:30:58.286 | INFO     | app.logic:get_ivent_by_datetime:26 - None
+2023-06-29 15:30:58.290 | INFO     | app.logic:generate_token:44 - Generating a token
+2023-06-29 15:30:58.292 | INFO     | app.logic:get_ivent_by_datetime:29 - 3d18002c6368641a15dfc71a86347796 Create new ivent
+2023-06-29 15:30:59.504 | INFO     | app.main:upload_file:50 - jpnb2.PNG File is writing
+2023-06-29 15:34:25.471 | INFO     | app.logic:get_ivent_by_datetime:26 - None
+2023-06-29 15:34:25.475 | INFO     | app.logic:generate_token:44 - Generating a token
+2023-06-29 15:34:25.477 | INFO     | app.logic:get_ivent_by_datetime:29 - feebf674bb894851c8c2bdbdcc554504 Create new ivent
+2023-06-29 15:34:29.044 | INFO     | app.main:upload_file:50 - jpnb2.PNG File is writing
+2023-06-29 15:34:34.517 | INFO     | app.logic:get_ivent_by_datetime:26 - None
+2023-06-29 15:34:34.520 | INFO     | app.logic:generate_token:44 - Generating a token
+2023-06-29 15:34:34.523 | INFO     | app.logic:get_ivent_by_datetime:29 - 4bcb1393e94487f3a59dbd28fa81b9e3 Create new ivent
+2023-06-29 15:34:36.285 | INFO     | app.main:upload_file:50 - jpnb2.PNG File is writing
+2023-06-29 15:38:46.522 | INFO     | app.logic:get_ivent_by_datetime:26 - <app.models.Ivent object at 0x000002213AF908D0>
+2023-06-29 15:38:46.526 | INFO     | app.logic:get_ivent_by_datetime:32 - <app.models.Ivent object at 0x000002213AF908D0> Token for ivent is getting
+2023-06-29 15:38:46.529 | ERROR    | app.logic:get_ivent_by_token:40 - Error get ivent data by token
+2023-06-29 15:47:56.544 | INFO     | app.logic:get_ivent_by_datetime:26 - None
+2023-06-29 15:47:56.547 | INFO     | app.logic:generate_token:45 - Generating a token
+2023-06-29 15:47:56.551 | INFO     | app.logic:get_ivent_by_datetime:29 - ddc1630747f4c6af00f47435ad6ca7c2 Create new ivent
+2023-06-29 15:47:57.536 | INFO     | app.main:upload_file:50 - jpnb2.PNG File is writing
+2023-06-29 15:48:01.946 | INFO     | app.logic:get_ivent_by_datetime:26 - None
+2023-06-29 15:48:01.951 | INFO     | app.logic:generate_token:45 - Generating a token
+2023-06-29 15:48:01.954 | INFO     | app.logic:get_ivent_by_datetime:29 - d3c8e7dbf5bcc30256a8fd810eafe579 Create new ivent
+2023-06-29 15:48:02.556 | INFO     | app.main:upload_file:50 - jpnb2.PNG File is writing
+2023-06-29 15:48:03.835 | INFO     | app.logic:get_ivent_by_datetime:26 - None
+2023-06-29 15:48:03.838 | INFO     | app.logic:generate_token:45 - Generating a token
+2023-06-29 15:48:03.841 | INFO     | app.logic:get_ivent_by_datetime:29 - cbd3377fa3a4c77ed2bb57887356105f Create new ivent
+2023-06-29 15:48:05.977 | INFO     | app.main:upload_file:50 - jpnb2.PNG File is writing
+2023-06-29 15:52:37.790 | INFO     | app.logic:get_ivent_by_datetime:26 - None
+2023-06-29 15:52:37.794 | INFO     | app.logic:generate_token:45 - Generating a token
+2023-06-29 15:52:37.796 | INFO     | app.logic:get_ivent_by_datetime:29 - 1556b8177ef0515506bab4c8c05d4ac0 Create new ivent
+2023-06-29 15:52:38.545 | INFO     | app.main:upload_file:50 - jpnb2.PNG File is writing
+2023-06-29 15:52:41.265 | INFO     | app.logic:get_ivent_by_datetime:26 - None
+2023-06-29 15:52:41.268 | INFO     | app.logic:generate_token:45 - Generating a token
+2023-06-29 15:52:41.270 | INFO     | app.logic:get_ivent_by_datetime:29 - 94879fc5e14855db662bf5276ba7ce16 Create new ivent
+2023-06-29 15:52:41.963 | INFO     | app.main:upload_file:50 - jpnb2.PNG File is writing
+2023-06-29 16:00:26.443 | INFO     | app.logic:get_ivent_by_datetime:26 - None
+2023-06-29 16:00:26.945 | INFO     | app.logic:generate_token:45 - Generating a token
+2023-06-29 16:00:26.949 | INFO     | app.logic:get_ivent_by_datetime:29 - d7644aae428da7ee5f2a8b1e6cbe2bd2 Create new ivent
+2023-06-29 16:00:28.584 | INFO     | app.main:upload_file:50 - jpnb2.PNG File is writing
+2023-06-29 16:00:33.410 | INFO     | app.logic:get_ivent_by_datetime:26 - None
+2023-06-29 16:00:33.413 | INFO     | app.logic:generate_token:45 - Generating a token
+2023-06-29 16:00:33.416 | INFO     | app.logic:get_ivent_by_datetime:29 - 9c3f1a15d111ee2a703fdddb9477365d Create new ivent
+2023-06-29 16:00:34.458 | INFO     | app.main:upload_file:50 - jpnb2.PNG File is writing
+2023-06-29 16:07:01.836 | INFO     | app.logic:get_ivent_by_datetime:31 - None
+2023-06-29 16:07:01.839 | INFO     | app.logic:generate_token:50 - Generating a token
+2023-06-29 16:07:01.841 | INFO     | app.logic:get_ivent_by_datetime:34 - 65f41a898be1f922dfd3bc003ca86ee2 Create new ivent
+2023-06-29 16:07:03.171 | INFO     | app.main:upload_file:50 - jpnb2.PNG File is writing
+2023-06-29 16:07:04.861 | INFO     | app.logic:get_ivent_by_datetime:31 - None
+2023-06-29 16:07:04.864 | INFO     | app.logic:generate_token:50 - Generating a token
+2023-06-29 16:07:04.867 | INFO     | app.logic:get_ivent_by_datetime:34 - c5caa1458cf9e4a67aacc593841740d1 Create new ivent
+2023-06-29 16:07:06.166 | INFO     | app.main:upload_file:50 - jpnb2.PNG File is writing
+2023-06-29 16:07:07.977 | INFO     | app.logic:get_ivent_by_datetime:31 - None
+2023-06-29 16:07:07.981 | INFO     | app.logic:generate_token:50 - Generating a token
+2023-06-29 16:07:07.983 | INFO     | app.logic:get_ivent_by_datetime:34 - 36921a4d7d75749bfa0e26f0e7b7e6f1 Create new ivent
+2023-06-29 16:07:09.015 | INFO     | app.main:upload_file:50 - jpnb2.PNG File is writing
+2023-06-29 16:09:00.306 | INFO     | app.logic:get_ivent_by_datetime:31 - None
+2023-06-29 16:09:00.309 | INFO     | app.logic:generate_token:50 - Generating a token
+2023-06-29 16:09:00.312 | INFO     | app.logic:get_ivent_by_datetime:34 - 9bf4241ffaa689b88c90999f48e193e6 Create new ivent
+2023-06-29 16:09:01.726 | INFO     | app.main:upload_file:50 - jpnb2.PNG File is writing
+2023-06-29 16:09:07.654 | INFO     | app.logic:get_ivent_by_datetime:31 - None
+2023-06-29 16:09:07.657 | INFO     | app.logic:generate_token:50 - Generating a token
+2023-06-29 16:09:07.659 | INFO     | app.logic:get_ivent_by_datetime:34 - 82f2f67d8ae96dd796377c1bb617c075 Create new ivent
+2023-06-29 16:09:08.021 | INFO     | app.main:upload_file:50 - jpnb2.PNG File is writing
+2023-06-29 16:09:10.388 | INFO     | app.logic:get_ivent_by_datetime:31 - None
+2023-06-29 16:09:10.395 | INFO     | app.logic:generate_token:50 - Generating a token
+2023-06-29 16:09:10.398 | INFO     | app.logic:get_ivent_by_datetime:34 - 1645002cd74fefad6b87ee3ee86ba456 Create new ivent
+2023-06-29 16:09:10.809 | INFO     | app.main:upload_file:50 - jpnb2.PNG File is writing
+2023-06-29 16:16:02.502 | INFO     | app.logic:get_ivent_by_datetime:31 - None
+2023-06-29 16:16:02.505 | INFO     | app.logic:generate_token:50 - Generating a token
+2023-06-29 16:16:02.507 | INFO     | app.logic:get_ivent_by_datetime:34 - 1790ad60b94fdd997e76fb4396570c22 Create new ivent
+2023-06-29 16:16:02.689 | INFO     | app.main:upload_file:50 - jpnb2.PNG File is writing
+2023-06-29 16:16:08.627 | INFO     | app.logic:get_ivent_by_datetime:31 - None
+2023-06-29 16:16:08.631 | INFO     | app.logic:generate_token:50 - Generating a token
+2023-06-29 16:16:08.633 | INFO     | app.logic:get_ivent_by_datetime:34 - 7b486cf0e0bb53ed9e4b05414050cc23 Create new ivent
+2023-06-29 16:16:09.001 | INFO     | app.main:upload_file:50 - jpnb2.PNG File is writing
+2023-06-29 16:19:22.944 | INFO     | app.logic:get_ivent_by_datetime:26 - None
+2023-06-29 16:19:22.947 | INFO     | app.logic:generate_token:45 - Generating a token
+2023-06-29 16:19:22.949 | INFO     | app.logic:get_ivent_by_datetime:29 - 96b1cab5059682b62c96d9929d178926 Create new ivent
+2023-06-29 16:20:08.402 | INFO     | app.logic:get_ivent_by_datetime:26 - None
+2023-06-29 16:20:08.405 | INFO     | app.logic:generate_token:45 - Generating a token
+2023-06-29 16:20:08.407 | INFO     | app.logic:get_ivent_by_datetime:29 - f3dea6326bef1e0c9935081e52c57db0 Create new ivent
+2023-06-29 16:20:09.135 | INFO     | app.main:upload_file:50 - jpnb2.PNG File is writing
+2023-06-29 16:20:11.787 | INFO     | app.logic:get_ivent_by_datetime:26 - <app.models.Ivent object at 0x000002617388A350>
+2023-06-29 16:20:11.790 | INFO     | app.logic:get_ivent_by_datetime:33 - f3dea6326bef1e0c9935081e52c57db0 Token for ivent is getting
+2023-06-29 16:20:11.794 | ERROR    | app.logic:make_processing_dir:75 - It's directory is making
+2023-06-29 16:20:11.797 | INFO     | app.main:upload_file:50 - jpnb2.PNG File is writing
+2023-06-29 16:20:13.935 | INFO     | app.logic:get_ivent_by_datetime:26 - <app.models.Ivent object at 0x000002617388BAD0>
+2023-06-29 16:20:13.938 | INFO     | app.logic:get_ivent_by_datetime:33 - f3dea6326bef1e0c9935081e52c57db0 Token for ivent is getting
+2023-06-29 16:20:13.943 | ERROR    | app.logic:make_processing_dir:75 - It's directory is making
+2023-06-29 16:20:14.536 | INFO     | app.main:upload_file:50 - jpnb2.PNG File is writing
+2023-06-30 12:50:26.792 | INFO     | app.logic:generate_token:44 - Generating a token
+2023-06-30 12:50:26.818 | INFO     | app.logic:get_ivent_token_by_datetime:28 - f6e9764cfcb6780c6ae4ffce24787a07 Create new ivent
+2023-06-30 12:50:27.381 | INFO     | app.main:upload_file:48 - jpnb2.PNG File is writing
