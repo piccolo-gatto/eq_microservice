@@ -1,0 +1,42 @@
+clients.sql
+1)	
+	a) SELECT COUNT(*) AS 'all_clients' FROM `clients`;
+	b) SELECT COUNT(*) AS 'all_clients' FROM `clients` WHERE YEAR(`dbirth`) > 1990;
+	c) SELECT COUNT(*) AS 'all_clients' FROM `clients` WHERE `name` = 'Thomas';
+	   SELECT COUNT(*) AS 'all_clients' FROM `clients` WHERE `name` = 'Barbara';
+	   SELECT COUNT(*) AS 'all_clients' FROM `clients` WHERE `name` = 'Willie';
+2)	
+	a) SELECT YEAR(`dbirth`), COUNT(*) FROM `clients` GROUP BY YEAR(`dbirth`);
+	b) SELECT YEAR(`dbirth`), `gender`, COUNT(*) FROM `clients` GROUP BY YEAR(`dbirth`), `gender`;
+3)	SELECT MONTH(`dbirth`), COUNT(*) FROM `clients` GROUP BY MONTH(`dbirth`);
+4)
+	a) SELECT AVG(TIMESTAMPDIFF(YEAR, `dbirth`, NOW())) AS 'avg_age' FROM `clients`;
+	b) SELECT MIN(TIMESTAMPDIFF(YEAR, `dbirth`, NOW())) AS 'min_age' FROM `clients`;
+	c) SELECT MAX(TIMESTAMPDIFF(YEAR, `dbirth`, NOW())) AS 'max_age' FROM `clients`;
+5)	SELECT `name`, COUNT(`name`) AS 'count_name' FROM `clients` WHERE YEAR(`dbirth`) > 1960 AND YEAR(`dbirth`) < 1969 GROUP BY `name`;
+	SELECT `name`, COUNT(`name`) AS 'count_name' FROM `clients` WHERE YEAR(`dbirth`) > 1970 AND YEAR(`dbirth`) < 1979 GROUP BY `name`;
+	SELECT `name`, COUNT(`name`) AS 'count_name' FROM `clients` WHERE YEAR(`dbirth`) > 1980 AND YEAR(`dbirth`) < 1989 GROUP BY `name`;
+	SELECT `name`, COUNT(`name`) AS 'count_name' FROM `clients` WHERE YEAR(`dbirth`) > 1990 AND YEAR(`dbirth`) < 1999 GROUP BY `name`;
+6)	SELECT `gender`, COUNT(`gender`) AS 'count_name' FROM `clients` WHERE YEAR(`dbirth`) > 1940 AND YEAR(`dbirth`) < 1949 GROUP BY `gender`;
+	SELECT `gender`, COUNT(`gender`) AS 'count_name' FROM `clients` WHERE YEAR(`dbirth`) > 1950 AND YEAR(`dbirth`) < 1959 GROUP BY `gender`;
+	SELECT `gender`, COUNT(`gender`) AS 'count_name' FROM `clients` WHERE YEAR(`dbirth`) > 1960 AND YEAR(`dbirth`) < 1969 GROUP BY `gender`;
+	SELECT `gender`, COUNT(`gender`) AS 'count_name' FROM `clients` WHERE YEAR(`dbirth`) > 1970 AND YEAR(`dbirth`) < 1979 GROUP BY `gender`;
+
+states.sql
+1)
+	a) SELECT `date`, SUM(`hits`), SUM(`loads`) FROM `stats` GROUP BY `date`;
+	b) SELECT `country`, SUM(`hits`), SUM(`loads`) FROM `stats` GROUP BY `country`;
+	c) SELECT `date`, `country`, SUM(`hits`), SUM(`loads`) FROM `stats` GROUP BY `date`, `country`;
+2)
+	a) SELECT `date`, AVG(`hits`) FROM `stats` GROUP BY `date`;
+	b) SELECT `country`, AVG(`hits`) FROM `stats` GROUP BY `country`;
+3)
+	a) SELECT `date`, AVG(`loads`) FROM `stats` GROUP BY `date`;
+	b) SELECT `country`, AVG(`loads`) FROM `stats` GROUP BY `country`;
+4)
+	a) SELECT `date`, MAX(`loads`), MIN(`loads`) FROM `stats` GROUP BY `date`;
+	b) SELECT `country`, MAX(`loads`), MIN(`loads`) FROM `stats` GROUP BY `country`;
+5)	SELECT `date`, `loads` / `hits` AS 'converse' FROM `stats` GROUP BY `date`;
+6)	SELECT `date`, MAX(`loads` / `hits`) AS 'converse' FROM `stats`;
+7)	SELECT `date`, `loads` / `hits` AS 'converse' FROM `stats` ORDER BY `converse` DESC LIMIT 5;
+	

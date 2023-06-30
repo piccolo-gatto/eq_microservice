@@ -1,4 +1,4 @@
-from pydantic import BaseModel,EmailStr
+from pydantic import BaseModel, EmailStr
 from datetime import datetime
 import secrets
 
@@ -14,22 +14,17 @@ class File(BaseModel):
     class Config:
         orm_mode = True
 
-        
-class UserBase(BaseModel):
+
+class User(BaseModel):
     email: EmailStr
-      
-
-class UserCreate(UserBase):
-    pass
-  
-
-class User(UserBase):
-    id: int
-    files: list[File] = []
 
     class Config:
         orm_mode = True
 
-        
+
+class UserCreate(User):
+    pass
+
+
 class UserToken(BaseModel):
     token: str
