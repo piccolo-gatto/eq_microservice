@@ -24,7 +24,7 @@ class User(BaseModel):
     email: EmailStr
 
 
-class UserCreate(UserBase):
+class UserCreate(User):
     pass
 
 
