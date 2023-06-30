@@ -86,7 +86,7 @@ def get_id_by_token(db: Session, token: str):
     return user.id
 
 
-def create_user(db: Session, user: schemas.UserToke):
+def create_user(db: Session, user: schemas.UserToken):
     token = generate_token()
     db_user = models.User(email=user.email, token=token)
     db.add(db_user)
