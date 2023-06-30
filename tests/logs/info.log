@@ -1,0 +1,24 @@
+2023-06-30 11:28:20.845 | INFO     | app.logic:generate_token:44 - Generating a token
+2023-06-30 11:28:21.583 | INFO     | app.logic:get_ivent_token_by_datetime:32 - b52b323bb8c94bc8b9f45d71c0de3d5b Token for ivent is getting
+2023-06-30 11:28:21.586 | INFO     | app.logic:generate_token:44 - Generating a token
+2023-06-30 11:28:45.860 | INFO     | app.logic:generate_token:44 - Generating a token
+2023-06-30 11:28:46.161 | INFO     | app.logic:get_ivent_token_by_datetime:32 - b52b323bb8c94bc8b9f45d71c0de3d5b Token for ivent is getting
+2023-06-30 11:28:46.706 | INFO     | app.logic:generate_token:44 - Generating a token
+2023-06-30 11:48:21.391 | INFO     | app.logic:generate_token:44 - Generating a token
+2023-06-30 11:48:22.681 | INFO     | app.logic:get_ivent_token_by_datetime:32 - f705c3145953d9ca98eeb46d236b7e77 Token for ivent is getting
+2023-06-30 11:48:23.220 | INFO     | app.logic:generate_token:44 - Generating a token
+2023-06-30 11:48:54.643 | INFO     | app.logic:generate_token:44 - Generating a token
+2023-06-30 11:48:55.149 | INFO     | app.logic:get_ivent_token_by_datetime:32 - f705c3145953d9ca98eeb46d236b7e77 Token for ivent is getting
+2023-06-30 11:48:56.122 | INFO     | app.logic:generate_token:44 - Generating a token
+2023-06-30 11:49:18.761 | INFO     | app.logic:generate_token:44 - Generating a token
+2023-06-30 11:49:19.938 | INFO     | app.logic:get_ivent_token_by_datetime:32 - 619fa2d984828d012de83a5301316fb7 Token for ivent is getting
+2023-06-30 11:49:20.367 | INFO     | app.logic:generate_token:44 - Generating a token
+2023-06-30 11:49:26.583 | INFO     | app.logic:generate_token:44 - Generating a token
+2023-06-30 11:49:27.313 | INFO     | app.logic:get_ivent_token_by_datetime:32 - 619fa2d984828d012de83a5301316fb7 Token for ivent is getting
+2023-06-30 11:49:28.168 | INFO     | app.logic:generate_token:44 - Generating a token
+2023-06-30 11:50:17.292 | INFO     | app.logic:generate_token:44 - Generating a token
+2023-06-30 11:50:17.640 | INFO     | app.logic:get_ivent_token_by_datetime:32 - d683010a312e3ee5c081ef456cddceaf Token for ivent is getting
+2023-06-30 11:50:18.120 | INFO     | app.logic:generate_token:44 - Generating a token
+2023-06-30 11:50:23.629 | INFO     | app.logic:generate_token:44 - Generating a token
+2023-06-30 11:50:25.056 | INFO     | app.logic:get_ivent_token_by_datetime:32 - be9be1cc8fc0ca1fa09d62e761705a65 Token for ivent is getting
+2023-06-30 11:50:25.512 | INFO     | app.logic:generate_token:44 - Generating a token
