@@ -1,27 +1,25 @@
 from pydantic import BaseModel,EmailStr
 from datetime import datetime
+import secrets
 
 
-class FileBase(BaseModel):
-    path: str
-    start_datetime: datetime
-    end_datetime: datetime
-
-
-class FileCreate(FileBase):
-    pass
-
-
-class File(FileBase):
+class File(BaseModel):
     id: int
     user_id: int
+    ivent_id: int
+    type: str
+    path: str
+    datetime: str
 
     class Config:
         orm_mode = True
 
-
+        
 class User(BaseModel):
     email: EmailStr
+
+    class Config:
+        orm_mode = True
 
 
 class UserCreate(User):
