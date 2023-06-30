@@ -71,3 +71,31 @@
 2023-06-30 13:13:08.035 | INFO     | app.logic:get_ivent_token_by_datetime:32 - f6e9764cfcb6780c6ae4ffce24787a07 Token for ivent is getting
 2023-06-30 13:13:08.037 | ERROR    | app.logic:make_processing_dir:74 - It's directory is making
 2023-06-30 13:13:08.039 | INFO     | app.main:upload_file:48 - test.txt File is writing
+2023-06-30 13:37:10.736 | INFO     | app.crud:generate_token:44 - Generating a token
+2023-06-30 13:37:11.002 | INFO     | app.crud:get_ivent_token_by_datetime:32 - 9cd83de05f8dd95a39bca89ff5849c97 Token for ivent is getting
+2023-06-30 13:37:11.193 | INFO     | app.crud:generate_token:44 - Generating a token
+2023-06-30 13:37:11.867 | INFO     | app.crud:get_ivent_token_by_datetime:32 - f6e9764cfcb6780c6ae4ffce24787a07 Token for ivent is getting
+2023-06-30 13:37:11.868 | ERROR    | app.crud:make_processing_dir:74 - It's directory is making
+2023-06-30 13:37:11.869 | INFO     | app.main:upload_file:48 - test.txt File is writing
+2023-06-30 13:39:47.867 | INFO     | app.crud:generate_token:44 - Generating a token
+2023-06-30 13:39:48.198 | INFO     | app.crud:get_ivent_token_by_datetime:32 - c4189e18cf06b68b9685cbb69f739bc2 Token for ivent is getting
+2023-06-30 13:39:48.508 | INFO     | app.crud:generate_token:44 - Generating a token
+2023-06-30 13:39:49.183 | INFO     | app.crud:get_ivent_token_by_datetime:32 - f6e9764cfcb6780c6ae4ffce24787a07 Token for ivent is getting
+2023-06-30 13:39:49.186 | INFO     | app.main:upload_file:48 - test.txt File is writing
+2023-06-30 13:45:31.191 | INFO     | app.crud:generate_token:44 - Generating a token
+2023-06-30 13:45:31.496 | INFO     | app.crud:get_ivent_token_by_datetime:32 - 7214ad707d5a00e88b41e5722e058088 Token for ivent is getting
+2023-06-30 13:45:31.683 | INFO     | app.crud:generate_token:44 - Generating a token
+2023-06-30 13:45:32.349 | INFO     | app.crud:get_ivent_token_by_datetime:32 - f6e9764cfcb6780c6ae4ffce24787a07 Token for ivent is getting
+2023-06-30 13:45:32.352 | INFO     | app.main:upload_file:48 - test.txt File is writing
+2023-06-30 13:46:35.943 | INFO     | app.crud:generate_token:44 - Generating a token
+2023-06-30 13:46:36.115 | INFO     | app.crud:get_ivent_token_by_datetime:32 - e16a2e25a3552e14bd1c7a7b4055a33d Token for ivent is getting
+2023-06-30 13:46:36.354 | INFO     | app.crud:generate_token:44 - Generating a token
+2023-06-30 13:46:36.651 | INFO     | app.crud:get_ivent_token_by_datetime:32 - f6e9764cfcb6780c6ae4ffce24787a07 Token for ivent is getting
+2023-06-30 13:46:36.653 | ERROR    | app.crud:make_processing_dir:74 - It's directory is making
+2023-06-30 13:46:36.654 | INFO     | app.main:upload_file:48 - test.txt File is writing
+2023-06-30 14:05:39.328 | INFO     | app.crud:generate_token:52 - Generating a token
+2023-06-30 14:05:39.482 | INFO     | app.crud:get_ivent_token_by_datetime:35 - 890330cac596b471812b394a1157f496 Token for ivent is getting
+2023-06-30 14:05:39.589 | INFO     | app.crud:generate_token:52 - Generating a token
+2023-06-30 14:05:39.978 | INFO     | app.crud:get_ivent_token_by_datetime:35 - f6e9764cfcb6780c6ae4ffce24787a07 Token for ivent is getting
+2023-06-30 14:05:39.980 | ERROR    | app.crud:make_processing_dir:82 - It's directory is making
+2023-06-30 14:05:39.981 | INFO     | app.main:upload_file:48 - test.txt File is writing
