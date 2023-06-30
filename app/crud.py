@@ -98,7 +98,3 @@ def get_id_by_token(db: Session, token: str):
         logger.error("Error receiving user data by token")
         raise HTTPException(status_code=500, detail="Error receiving user data by token")
     return user.id
-
-
-
-
