@@ -1,5 +1,6 @@
 from sqlalchemy.orm import Session
 from pydantic import BaseModel, EmailStr
+from fastapi import HTTPException
 import os
 import secrets
 import shutil
@@ -21,7 +22,7 @@ def get_user_by_email(db: Session, email: str):
         logger.error("Error receiving user data by email")
         raise HTTPException(status_code=500, detail="Error receiving user data by email")
     return db_user
-    
+  
 
 def get_ivent_token_by_datetime(db: Session, datetime_start: datetime, datetime_end: datetime):
     try:
@@ -53,12 +54,6 @@ def generate_token():
     token = secrets.token_hex(TOKEN_LENGTH)
     return token
 
-def create_user(db: Session, user: schemas.UserCreate):
-    db_user = models.User(email=user.email)
-    db.add(db_user)
-    db.commit()
-    db.refresh(db_user)
-    return db_user
 
 def upload_file(db: Session, user_id: int, ivent_id: int, path: str, type: str, datetime: datetime):
     db_file = models.Uploaded_file(user_id=user_id, ivent_id=ivent_id, path=path, type=type, datetime=datetime)
@@ -81,3 +76,21 @@ def make_processing_dir(token: str):
     else:
         logger.error("It's directory is making")
     return pth
+
+def get_id_by_token(db: Session, token: str):
+    try:
+        user = db.query(models.User).filter(models.User.token == token).first()
+    except:
+        logger.error("Error receiving user data by token")
+        raise HTTPException(status_code=500, detail="Error receiving user data by token")
+    return user.id
+
+
+def create_user(db: Session, user: schemas.UserToke):
+    token = generate_token()
+    db_user = models.User(email=user.email, token=token)
+    db.add(db_user)
+    db.commit()
+    db.refresh(db_user)
+    logger.info(f"New DB user {db_user.token} was successfully created")
+    return db_user

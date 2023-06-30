@@ -14,13 +14,14 @@ class File(BaseModel):
     class Config:
         orm_mode = True
 
+        
 class UserBase(BaseModel):
     email: EmailStr
-
+      
 
 class UserCreate(UserBase):
     pass
-
+  
 
 class User(UserBase):
     id: int
@@ -29,4 +30,6 @@ class User(UserBase):
     class Config:
         orm_mode = True
 
-
+        
+class UserToken(BaseModel):
+    token: str

@@ -9,6 +9,7 @@ class User(Base):
 
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     email = Column(String)
+    token = Column(String)
 
     files = relationship("Uploaded_file", back_populates="user")
 

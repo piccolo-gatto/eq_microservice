@@ -18,8 +18,7 @@ models.Base.metadata.create_all(bind=engine)
 api = FastAPI()
 
 
-logger.add("./logs/info.log", level="INFO", retention="1 week")
-
+logger.add("./logs/info.log", retention="1 week")
 
 def get_db():
     db = SessionLocal()
@@ -27,14 +26,6 @@ def get_db():
         yield db
     finally:
         db.close()
-
-@api.post("/create_user", response_model=schemas.User)
-async def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
-    db_user = crud.get_user_by_email(db, email=str(user.email))
-    if db_user:
-        raise HTTPException(status_code=400, detail="Email already registered")
-    #добавление
-    return crud.create_user(db=db, user=user)
 
 
 @api.post("/upload_file", response_model=schemas.File)
@@ -48,3 +39,13 @@ async def upload_file(email: EmailStr, file: UploadFile, type: str, datetime_sta
     logger.info(f"{file.filename} File is writing")
     return crud.upload_file(db=db, user_id=user_id, ivent_id=ivent_id, path=path, type=type, datetime=datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
     
+@api.post("/create_user", response_model=schemas.User)
+async def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
+    logger.info("Received request to create a user")
+    db_user = crud.get_user_by_email(db, email=user.email)
+    if db_user:
+        logger.info(f"Email {db_user.token} already registered")
+        raise HTTPException(status_code=400, detail="Email already registered")
+    created_user = crud.create_user(db=db, user=user)
+    logger.info(f"User {created_user.token} created successfully")
+    return created_user
