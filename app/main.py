@@ -40,15 +40,23 @@ async def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
 @api.post("/upload_file", response_model=schemas.File)
 async def upload_file(email: EmailStr, file: UploadFile, type: str, datetime_start: datetime, datetime_end: datetime,
                       db: Session = Depends(get_db)):
-    user_id = crud.get_user_by_email(db, email=str(email)).id
-    token = crud.get_ivent_token_by_datetime(db, datetime_start=datetime_start.strftime("%Y-%m-%d %H:%M:%S"),
-                                             datetime_end=datetime_end.strftime("%Y-%m-%d %H:%M:%S"))
-    ivent_id = crud.get_ivent_by_token(db, token=token).id
-    path = str(crud.make_processing_dir(token)) + '/' + file.filename
-    with open(path, "wb") as f:
-        f.write(await file.read())
-    logger.info(f"{file.filename} File is writing")
-    return crud.upload_file(db=db, user_id=user_id, ivent_id=ivent_id, path=path, type=type,
+    try:
+        user = crud.get_user_by_email(db, email=str(email))
+        if user:
+            user_id = user.id
+        else:
+            logger.error(f"Email not registred")
+            raise HTTPException(status_code=500, detail="Email not registred")
+        token = crud.get_ivent_token_by_datetime(db, datetime_start=datetime_start.strftime("%Y-%m-%d %H:%M:%S"),
+                                                 datetime_end=datetime_end.strftime("%Y-%m-%d %H:%M:%S"))
+        ivent_id = crud.get_ivent_by_token(db, token=token).id
+        path = str(crud.make_processing_dir(token)) + '/' + file.filename
+        with open(path, "wb") as f:
+            f.write(await file.read())
+        logger.info(f"{file.filename} File is writing")
+        return crud.upload_file(db=db, user_id=user_id, ivent_id=ivent_id, path=path, type=type,
                             datetime=datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
-
+    except:
+        logger.error(f"Unprocessable entity")
+        raise HTTPException(status_code=422, detail="Unprocessable entity")
 
