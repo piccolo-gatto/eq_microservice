@@ -11,7 +11,7 @@ from sqlalchemy import and_
 
 from . import models, schemas
 
-STORAGE_PATH = Path('./app/files')
+STORAGE_PATH = Path('/files')
 CLEAN_AFTER_SECONDS = 24 * 3600 * 30
 TOKEN_LENGTH = 16
 
