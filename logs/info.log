@@ -198,3 +198,10 @@
 2023-06-30 12:50:26.792 | INFO     | app.logic:generate_token:44 - Generating a token
 2023-06-30 12:50:26.818 | INFO     | app.logic:get_ivent_token_by_datetime:28 - f6e9764cfcb6780c6ae4ffce24787a07 Create new ivent
 2023-06-30 12:50:27.381 | INFO     | app.main:upload_file:48 - jpnb2.PNG File is writing
+2023-07-02 03:19:42.509 | INFO     | app.main:create_user:31 - Received request to create a user
+2023-07-02 03:19:42.533 | INFO     | app.crud:generate_token:56 - Generating a token
+2023-07-02 03:19:42.555 | INFO     | app.crud:create_user:66 - New DB user e594c518bb64ff96c33d905b78560107 was successfully created
+2023-07-02 03:19:42.559 | INFO     | app.main:create_user:37 - User e594c518bb64ff96c33d905b78560107 created successfully
+2023-07-02 11:04:46.081 | INFO     | app.main:create_user:31 - Received request to create a user
+2023-07-02 11:04:46.100 | INFO     | app.main:create_user:34 - Email e594c518bb64ff96c33d905b78560107 already registered
+2023-07-02 11:23:38.007 | INFO     | app.main:get_last_uploaded_file:56 - Received request to get last uploaded file for user_id: 0

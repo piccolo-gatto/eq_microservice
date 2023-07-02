@@ -98,3 +98,13 @@ def get_id_by_token(db: Session, token: str):
         logger.error("Error receiving user data by token")
         raise HTTPException(status_code=500, detail="Error receiving user data by token")
     return user.id
+
+def get_last_uploaded_files(db: Session, user_id: int):
+    return db.query(models.Uploaded_file).filter(models.Uploaded_file.user_id == user_id).order_by(models.Uploaded_file.datetime.desc()).limit(10).all()
+
+def get_files_by_date(db: Session, user_id: int, date_start: datetime, date_end: datetime):
+    return db.query(models.Uploaded_file).filter(
+        models.Uploaded_file.user_id == user_id,
+        models.Uploaded_file.datetime >= date_start,
+        models.Uploaded_file.datetime <= date_end
+    ).all()
