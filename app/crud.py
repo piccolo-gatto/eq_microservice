@@ -11,7 +11,7 @@ from sqlalchemy import and_
 
 from . import models, schemas
 
-STORAGE_PATH = Path('./app/files')
+STORAGE_PATH = Path('/files')
 CLEAN_AFTER_SECONDS = 24 * 3600 * 30
 TOKEN_LENGTH = 16
 
@@ -71,6 +71,7 @@ def upload_file(db: Session, user_id: int, ivent_id: int, path: str, type: str, 
     db.add(db_file)
     db.commit()
     db.refresh(db_file)
+    logger.info(f"New DB file {db_file.id} was successfully created")
     return db_file
 
 
@@ -79,6 +80,7 @@ def create_ivent(db: Session, datetime_start: datetime, datetime_end: datetime, 
     db.add(db_ivent)
     db.commit()
     db.refresh(db_ivent)
+    logger.info(f"New DB ivent {db_ivent.token} was successfully created")
     return db_ivent
 
 
