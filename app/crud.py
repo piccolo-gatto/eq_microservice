@@ -3,7 +3,6 @@ from pydantic import BaseModel, EmailStr
 from fastapi import HTTPException
 import os
 import secrets
-import shutil
 from datetime import datetime
 from pathlib import Path
 from loguru import logger
@@ -12,10 +11,10 @@ from sqlalchemy import and_
 from . import models, schemas
 
 STORAGE_PATH = Path('/files')
-CLEAN_AFTER_SECONDS = 24 * 3600 * 30
+CLEAN_AFTER_SECONDS = 2
 TOKEN_LENGTH = 16
 
-
+logger.add("./logs/info.log", retention="1 week")
 
 def get_user_by_email(db: Session, email: str):
     try:
@@ -89,7 +88,7 @@ def make_processing_dir(token: str):
     if not pth.exists():
         os.makedirs(pth)
     else:
-        logger.error("It's directory is making")
+        logger.info("It's directory is making")
     return pth
 
 
@@ -102,5 +101,43 @@ def get_id_by_token(db: Session, token: str):
     return user.id
 
 
+def get_last_uploaded_files(db: Session, user_id: int):
+    user_token = db.query(models.User).filter(models.User.id == user_id).first().token
+    try:
+        logger.info(f'Getting files for user {user_token}')
+    except:
+        logger.error(f'Error receiving data for user {user_token}')
+        raise HTTPException(status_code=500, detail=f'Error receiving data for user {user_id}')
+    return db.query(models.Uploaded_file).filter(models.Uploaded_file.user_id == user_id).order_by(models.Uploaded_file.datetime.desc()).limit(10).all()
+
+def get_files_by_date(db: Session, user_id: int, date_start: datetime, date_end: datetime):
+    user_token = db.query(models.User).filter(models.User.id == user_id).first().token
+    try:
+        logger.info(f'Getting files for user {user_token} and date {date_start}')
+    except:
+        logger.error(f'Error receiving data for user {user_token} and date {date_start}')
+    return db.query(models.Uploaded_file).filter(
+        models.Uploaded_file.user_id == user_id,
+        models.Uploaded_file.datetime >= date_start,
+        models.Uploaded_file.datetime <= date_end
+    ).all()
+
+def make_result_dir(path: str, type: str = ''):
+    file_path, file = path.split('/')
+    file_name = file.split('.')[0]
+    result_path = file_path + '/result/'
+    if not Path(result_path).exists():
+        os.makedirs(result_path)
+    else:
+        logger.info("It's directory is making")
+    result_path = result_path + file_name + f'_{type}.png'
+    return result_path
 
 
+def upload_result_file(db: Session, file_id: int, path: str, type: str):
+    db_file = models.Result_file(file_id=file_id, path=path, type=type)
+    db.add(db_file)
+    db.commit()
+    db.refresh(db_file)
+    logger.info(f"New DB result file {db_file.id} was successfully created")
+    return db_file
