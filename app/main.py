@@ -1,3 +1,5 @@
+import os
+import secrets
 from pydantic import EmailStr
 from fastapi import FastAPI, UploadFile, Depends, HTTPException
 from datetime import datetime, timedelta, date
@@ -7,6 +9,7 @@ from datetime import datetime, timedelta
 
 from app import models, schemas, crud
 from .database import SessionLocal, engine
+from turkey_eq_monitor.turkey_eq_monitor import processing
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -78,6 +81,50 @@ async def files_by_date(email: EmailStr, date: str, db: Session = Depends(get_db
 
     date_start = datetime.strptime(date, "%Y-%m-%d")
     date_end = date_start + timedelta(days=1)
-
+    logger.info('Data received successfully')
     files = crud.get_files_by_date(db=db, user_id=db_user.id, date_start=date_start, date_end=date_end)
     return files
+
+
+@api.post("/drow_map")
+async def drow_map(file_id: int, plot_params: schemas.Plot, db: Session = Depends(get_db)):
+    file = db.query(models.Uploaded_file).filter(models.Uploaded_file.id == file_id).first()
+    if file is None:
+        logger.error(f"File {file_id} not found")
+        raise HTTPException(status_code=404, detail=f"File {file_id} not found")
+    datetimes = [datetime.replace(tzinfo=datetime.tzinfo or processing._UTC) for datetime in plot_params.dates]
+    path = file.path
+    type = file.type
+    data = {type: processing.retrieve_data(path, type)}
+    result_path = crud.make_result_dir(path, 'map')
+    processing.plot_map(datetimes, data, type, lon_limits=plot_params.lon_limits, lat_limits=plot_params.lat_limits,
+             ncols=len(plot_params.dates), clims=plot_params.clims, savefig=result_path)
+    return crud.upload_result_file(db, file_id=file_id, type=type, path=result_path)
+
+
+@api.post("/drow_plot_sites")
+async def drow_plot_sites(file_id: int, plot_params: schemas.PlotSites, db: Session = Depends(get_db)):
+    file = db.query(models.Uploaded_file).filter(models.Uploaded_file.id == file_id).first()
+    if file is None:
+        logger.error(f"File {file_id} not found")
+        raise HTTPException(status_code=404, detail=f"File {file_id} not found")
+    path = file.path
+    type = file.type
+    result_path = crud.make_result_dir(path, 'sites')
+    processing.plot_sites(path, plot_params.sat, plot_params.sites, type, plot_params.shift, result_path)
+    return crud.upload_result_file(db, file_id=file_id, type=type, path=result_path)
+
+
+@api.post("/drow_plot_all_sats")
+async def drow_plot_all_sats(file_id: int, plot_params: schemas.PlotSats, db: Session = Depends(get_db)):
+    file = db.query(models.Uploaded_file).filter(models.Uploaded_file.id == file_id).first()
+    if file is None:
+        logger.error(f"File {file_id} not found")
+        raise HTTPException(status_code=404, detail=f"File {file_id} not found")
+    path = file.path
+    type = file.type
+    result_path = crud.make_result_dir(path, 'sats')
+    processing.plot_all_sats(path, plot_params.site, type, plot_params.shift, result_path)
+    return crud.upload_result_file(db, file_id=file_id, type=type, path=result_path)
+
+

@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: turkey-eq-monitor
+Version: 1.0
+Summary: Package for practical work on Turkey_EQ.
+Home-page: https://github.com/dzhoshua/turkey_eq_monitor.git
+License: MIT
+Requires-Python: >=3.10
+Provides-Extra: test

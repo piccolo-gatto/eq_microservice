@@ -26,6 +26,7 @@ class Uploaded_file(Base):
 
     user = relationship("User", back_populates="files")
     ivent = relationship("Ivent", back_populates="files")
+    res_files = relationship("Result_file", back_populates="up_files")
 
 class Ivent(Base):
     __tablename__ = "ivents"
@@ -36,3 +37,14 @@ class Ivent(Base):
     token = Column(String)
 
     files = relationship("Uploaded_file", back_populates="ivent")
+    
+    
+class Result_file(Base):
+    __tablename__ = "result_files"
+
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    file_id = Column(Integer, ForeignKey("uploaded_files.id"))
+    type = Column(String)
+    path = Column(String)
+
+    up_files = relationship("Uploaded_file", back_populates="res_files")
