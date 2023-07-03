@@ -3,7 +3,6 @@ from pydantic import BaseModel, EmailStr
 from fastapi import HTTPException
 import os
 import secrets
-import shutil
 from datetime import datetime
 from pathlib import Path
 from loguru import logger
@@ -11,8 +10,7 @@ from sqlalchemy import and_
 
 from . import models, schemas
 
-STORAGE_PATH = Path('/files')
-CLEAN_AFTER_SECONDS = 24 * 3600 * 30
+STORAGE_PATH = Path('./app/files')
 TOKEN_LENGTH = 16
 
 
