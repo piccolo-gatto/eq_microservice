@@ -10,8 +10,8 @@ from sqlalchemy import and_
 
 from . import models, schemas
 
-STORAGE_PATH = Path('/files')
-CLEAN_AFTER_SECONDS = 2
+STORAGE_PATH = Path('/app/files')
+#CLEAN_AFTER_SECONDS = 2
 TOKEN_LENGTH = 16
 
 logger.add("./logs/info.log", retention="1 week")

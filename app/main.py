@@ -104,16 +104,27 @@ async def drow_map(file_id: int, plot_params: schemas.Plot, db: Session = Depend
     return crud.upload_result_file(db, file_id=file_id, type=type, path=result_path)
 
 
-# @api.post("/drow_distance_time")
-# async def drow_distance_time(file_id: int, plot_params: schemas.PlotDT, db: Session = Depends(get_db)):
-#     file = db.query(models.Uploaded_file).filter(models.Uploaded_file.id == file_id).first()
-#     if file is None:
-#         logger.error(f"File {file_id} not found")
-#         raise HTTPException(status_code=404, detail=f"File {file_id} not found")
-#     path = file.path
-#     type = file.type
-#     data = processing.retrieve_data(path, type)
-#     x, y, c = processing.get_dist_time(data, plot_params.epcs)
-#     result_path = crud.make_result_dir(path, 'distance_time')
-#     processing.plot_distance_time(x, y, c, type, epcs=plot_params.epcs, clims=plot_params.clims, savefig=result_path)
-#     return crud.upload_result_file(db, file_id=file_id, type=type, path=result_path)
+@api.post("/drow_plot_sites")
+async def drow_plot_sites(file_id: int, plot_params: schemas.PlotSites, db: Session = Depends(get_db)):
+    file = db.query(models.Uploaded_file).filter(models.Uploaded_file.id == file_id).first()
+    if file is None:
+        logger.error(f"File {file_id} not found")
+        raise HTTPException(status_code=404, detail=f"File {file_id} not found")
+    path = file.path
+    type = file.type
+    result_path = crud.make_result_dir(path, 'sites')
+    processing.plot_sites(path, plot_params.sat, plot_params.sites, type, plot_params.shift, result_path)
+    return crud.upload_result_file(db, file_id=file_id, type=type, path=result_path)
+
+
+@api.post("/drow_plot_all_sats")
+async def drow_plot_all_sats(file_id: int, plot_params: schemas.PlotSats, db: Session = Depends(get_db)):
+    file = db.query(models.Uploaded_file).filter(models.Uploaded_file.id == file_id).first()
+    if file is None:
+        logger.error(f"File {file_id} not found")
+        raise HTTPException(status_code=404, detail=f"File {file_id} not found")
+    path = file.path
+    type = file.type
+    result_path = crud.make_result_dir(path, 'sats')
+    processing.plot_all_sats(path, plot_params.site, type, plot_params.shift, result_path)
+    return crud.upload_result_file(db, file_id=file_id, type=type, path=result_path)
