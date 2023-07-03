@@ -2,14 +2,12 @@ import app.models as models
 import app.crud as crud
 from app.database import SessionLocal
 from fastapi.testclient import TestClient
-from loguru import logger
 
 from app.main import api
 
 client = TestClient(api)
 
 import datetime
-from datetime import timedelta
 
 def test_get_files_by_date():
     test_user = models.User(email="test@example.com")
