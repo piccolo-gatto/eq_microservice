@@ -59,7 +59,7 @@ async def upload_file(email: EmailStr, file: UploadFile, type: str, datetime_sta
         raise HTTPException(status_code=422, detail="Unprocessable entity")
 
 
-@api.get("/last_uploaded_files/{email}", response_model=list[schemas.File])
+@api.get("/last_uploaded_files/", response_model=list[schemas.File])
 async def last_uploaded_files(email: EmailStr, db: Session = Depends(get_db)):
     db_user = crud.get_user_by_email(db, email=str(email))
     if not db_user:
@@ -69,7 +69,7 @@ async def last_uploaded_files(email: EmailStr, db: Session = Depends(get_db)):
     files = crud.get_last_uploaded_files(db=db, user_id=db_user.id)
     return files
 
-@api.get("/files_by_date/{email}", response_model=list[schemas.File])
+@api.get("/files_by_date/", response_model=list[schemas.File])
 async def files_by_date(email: EmailStr, date: str, db: Session = Depends(get_db)):
     db_user = crud.get_user_by_email(db, email=email)
     if not db_user:
