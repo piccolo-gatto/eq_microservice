@@ -25,7 +25,7 @@ class Uploaded_file(Base):
     datetime = Column(String)
 
     user = relationship("User", back_populates="files")
-    ivent = relationship("Ivent", back_populates="filess")
+    ivent = relationship("Ivent", back_populates="files")
 
 class Ivent(Base):
     __tablename__ = "ivents"
@@ -35,4 +35,4 @@ class Ivent(Base):
     datetime_end = Column(String)
     token = Column(String)
 
-    filess = relationship("Uploaded_file", back_populates="ivent")
+    files = relationship("Uploaded_file", back_populates="ivent")
