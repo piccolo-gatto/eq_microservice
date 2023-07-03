@@ -2,7 +2,6 @@ import app.crud as crud
 import app.models as models
 import app.schemas as schemas
 from app.database import SessionLocal
-import pytest
 from fastapi.testclient import TestClient
 
 from app.main import api

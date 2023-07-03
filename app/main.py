@@ -1,13 +1,11 @@
 import os
 import secrets
-import shutil
-
 from pydantic import EmailStr
 from fastapi import FastAPI, UploadFile, Depends, HTTPException
 from datetime import datetime, timedelta, date
 from sqlalchemy.orm import Session
 from loguru import logger
-import uvicorn
+from datetime import datetime, timedelta
 
 from app import models, schemas, crud
 from .database import SessionLocal, engine
@@ -58,12 +56,13 @@ async def upload_file(email: EmailStr, file: UploadFile, type: str, datetime_sta
         logger.info(f"{file.filename} File is writing")
         return crud.upload_file(db=db, user_id=user_id, ivent_id=ivent_id, path=path, type=type,
                             datetime=datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+    
     except:
         logger.error(f"Unprocessable entity")
         raise HTTPException(status_code=422, detail="Unprocessable entity")
 
 
-@api.get("/last_uploaded_files/")
+@api.get("/last_uploaded_files/", response_model=list[schemas.File])
 async def last_uploaded_files(email: EmailStr, db: Session = Depends(get_db)):
     db_user = crud.get_user_by_email(db, email=str(email))
     if not db_user:
@@ -73,8 +72,7 @@ async def last_uploaded_files(email: EmailStr, db: Session = Depends(get_db)):
     files = crud.get_last_uploaded_files(db=db, user_id=db_user.id)
     return files
 
-
-@api.get("/files_by_date/")
+@api.get("/files_by_date/", response_model=list[schemas.File])
 async def files_by_date(email: EmailStr, date: str, db: Session = Depends(get_db)):
     db_user = crud.get_user_by_email(db, email=email)
     if not db_user:
@@ -128,3 +126,5 @@ async def drow_plot_all_sats(file_id: int, plot_params: schemas.PlotSats, db: Se
     result_path = crud.make_result_dir(path, 'sats')
     processing.plot_all_sats(path, plot_params.site, type, plot_params.shift, result_path)
     return crud.upload_result_file(db, file_id=file_id, type=type, path=result_path)
+
+

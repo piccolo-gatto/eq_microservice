@@ -10,8 +10,7 @@ from sqlalchemy import and_
 
 from . import models, schemas
 
-STORAGE_PATH = Path('/app/files')
-#CLEAN_AFTER_SECONDS = 2
+STORAGE_PATH = Path('./app/files')
 TOKEN_LENGTH = 16
 
 logger.add("./logs/info.log", retention="1 week")
@@ -100,6 +99,8 @@ def get_id_by_token(db: Session, token: str):
         raise HTTPException(status_code=500, detail="Error receiving user data by token")
     return user.id
 
+def get_last_uploaded_files(db: Session, user_id: int):
+    return db.query(models.Uploaded_file).filter(models.Uploaded_file.user_id == user_id).order_by(models.Uploaded_file.datetime.desc()).limit(10).all()
 
 def get_last_uploaded_files(db: Session, user_id: int):
     user_token = db.query(models.User).filter(models.User.id == user_id).first().token
@@ -116,6 +117,9 @@ def get_files_by_date(db: Session, user_id: int, date_start: datetime, date_end:
         logger.info(f'Getting files for user {user_token} and date {date_start}')
     except:
         logger.error(f'Error receiving data for user {user_token} and date {date_start}')
+
+        
+def get_files_by_date(db: Session, user_id: int, date_start: datetime, date_end: datetime):
     return db.query(models.Uploaded_file).filter(
         models.Uploaded_file.user_id == user_id,
         models.Uploaded_file.datetime >= date_start,
