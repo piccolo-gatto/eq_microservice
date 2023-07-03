@@ -3,7 +3,6 @@ import app.crud as crud
 from app.database import SessionLocal
 from fastapi.testclient import TestClient
 import datetime
-from loguru import logger
 
 from app.main import api
 

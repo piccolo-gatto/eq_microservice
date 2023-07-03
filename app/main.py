@@ -1,13 +1,9 @@
-import os
-import secrets
-
 from pydantic import EmailStr
 from fastapi import FastAPI, UploadFile, Depends, HTTPException
 from datetime import datetime
 from sqlalchemy.orm import Session
 from loguru import logger
 from datetime import datetime, timedelta
-import uvicorn
 
 from app import models, schemas, crud
 from .database import SessionLocal, engine
@@ -57,24 +53,27 @@ async def upload_file(email: EmailStr, file: UploadFile, type: str, datetime_sta
         logger.info(f"{file.filename} File is writing")
         return crud.upload_file(db=db, user_id=user_id, ivent_id=ivent_id, path=path, type=type,
                             datetime=datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+    
+    except:
+        logger.error(f"Unprocessable entity")
+        raise HTTPException(status_code=422, detail="Unprocessable entity")
 
 
 @api.get("/last_uploaded_files/{email}", response_model=list[schemas.File])
 async def last_uploaded_files(email: EmailStr, db: Session = Depends(get_db)):
     db_user = crud.get_user_by_email(db, email=str(email))
     if not db_user:
+        logger.error('User not found')
         raise HTTPException(status_code=400, detail="User not found")
-    
+    logger.info('Data received successfully')
     files = crud.get_last_uploaded_files(db=db, user_id=db_user.id)
     return files
-    except:
-        logger.error(f"Unprocessable entity")
-        raise HTTPException(status_code=422, detail="Unprocessable entity")
 
 @api.get("/files_by_date/{email}", response_model=list[schemas.File])
 async def files_by_date(email: EmailStr, date: str, db: Session = Depends(get_db)):
     db_user = crud.get_user_by_email(db, email=email)
     if not db_user:
+        logger.error('User not found')
         raise HTTPException(status_code=400, detail="User not found")
 
     date_start = datetime.strptime(date, "%Y-%m-%d")
