@@ -1,20 +1,25 @@
 [tool.poetry]
-name = "eq_microservice"
+name = "lynnk"
 version = "0.1.0"
 description = ""
-authors = ["piccolo-gatto", "ToshaTosha", "dzhoshua"]
+authors = ["Ekaterina <108530800+piccolo-gatto@users.noreply.github.com>"]
 license = "MIT"
 readme = "README.md"
-packages = [{include = "eq_microservice"}]
 
 [tool.poetry.dependencies]
-python = ">=3.10,<=3.11"
+python = "^3.11"
+fastapi = {extras = ["standart"], version = "^0.97.0"}
 uvicorn = {extras = ["standart"], version = "^0.22.0"}
 pydantic = {extras = ["email"], version = "^1.10.9"}
-sqlalchemy = "^2.0.16"
+sqlalchemy = {extras = ["standart"], version = "^2.0.16"}
+python-multipart = {extras = ["standart"], version = "^0.0.6"}
+pytest = {extras = ["standart"], version = "^7.4.0"}
+pytest-cov = "^4.1.0"
+loguru = {extras = ["standart"], version = "^0.7.0"}
+httpx = {extras = ["standart"], version = "^0.24.1"}
+h5py = "^3.9.0"
+matplotlib = "^3.7.1"
 
-[tool.poetry.group.dev.dependencies]
-fastapi = "^0.97.0"
 
 [build-system]
 requires = ["poetry-core"]
