@@ -320,7 +320,7 @@ def select_reoder_data(data, sats_count):
 def plot_single_sat(data_plot, sat, epc, plot_product,
                     limits=(3600, 3600),
                     shift=0.5,
-                    site_labels=False):
+                    site_labels=False, savefig=''):
     i = 0
     plt.figure(figsize=(6, 13))
     plt.rcParams.update(DEFAULT_PARAMS)
@@ -331,17 +331,15 @@ def plot_single_sat(data_plot, sat, epc, plot_product,
     for d in data_plot[sat]:
         _t = d['time']
         _val = d[plot_product]
-        # for i in range(len(_t)-1):
-        # if d['times'][i] - d['times'][i+1] > timedelta(0, 30):
-        #    _t[i] = None
         plt.plot(_t, _val + i * shift, marker='.')
         locs.append(i * shift)
         i = i + 1
-        plt.axvline(x=epc['time'], color='black', linewidth=3)
+        x = datetime.strptime(epc['time'], '%Y-%m-%d %H:%M:%S')
+        plt.axvline(x=x, color='black', linewidth=3)
         sites.append(d['site'])
     print('Sorted', sites)
-    plt.xlim(epc['time'] - timedelta(0, limits[0]),
-             epc['time'] + timedelta(0, limits[1]), )
+    plt.xlim(x - timedelta(0, limits[0]),
+             x + timedelta(0, limits[1]), )
     # to make grid lines on top and bottom
     locs = [-2 * shift, -shift] + locs + [i * shift, (i + 1) * shift]
     sites = [''] * 2 + sites + [''] * 2
@@ -352,8 +350,7 @@ def plot_single_sat(data_plot, sat, epc, plot_product,
     plt.title('Satellite ' + sat)
     plt.grid()
     plt.xlabel('UTC for February 6, 2023')
-    plt.show()
-
+    plt.savefig(savefig)
 
 def get_dtecs(data,
               sort_type='none', threshold=0.5,
@@ -667,7 +664,7 @@ def convert_files_to_data(files, val_field='Zerror', start=None, fin=None):
     return map_data
 
 
-def plot_all_sats(local_file, site, product, shift=0.5):
+def plot_all_sats(local_file, site, product, shift=0.5, savefig=''):
     f = h5py.File(local_file)
     plt.figure(figsize=(10, 13))
     plot_ax = plt.axes()
@@ -689,9 +686,10 @@ def plot_all_sats(local_file, site, product, shift=0.5):
     plot_ax.axvline(x=datetime(2023, 2, 6, 10, 24), color='red')
     plot_ax.axvline(x=datetime(2023, 2, 6, 1, 17), color='red')
     plot_ax.xaxis.set_major_formatter(mdates.DateFormatter("%H:%M"))
+    plt.savefig(savefig)
 
 
-def plot_sites(local_file, plot_sat, sites, product, shift=0.5):
+def plot_sites(local_file, plot_sat, sites, product, shift=0.5, savefig=''):
     f = h5py.File(local_file)
     plt.figure(figsize=(10, 13))
     plot_ax = plt.axes()
@@ -718,3 +716,4 @@ def plot_sites(local_file, plot_sat, sites, product, shift=0.5):
     plot_ax.axvline(x=datetime(2023, 2, 6, 10, 24), color='red')
     plot_ax.axvline(x=datetime(2023, 2, 6, 1, 17), color='red')
     plot_ax.xaxis.set_major_formatter(mdates.DateFormatter("%H:%M"))
+    plt.savefig(savefig)
